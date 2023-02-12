@@ -52,8 +52,7 @@ for (size_t i = 1; i < (v)->length; ++i){\
 	}\
 	(v)->items[j + 1] = key}
 
-#define vector_quick_sort(v, T)  T lambda(const void *a, const void *b){ return ( *(T*)a - *(T*)b );}\
-qsort((v)->items, (v)->length, sizeof(*(v)->items), lambda)
+#define vector_quick_sort(v, fn) (qsort((v)->items, (v)->length, sizeof(*(v)->items), (fn)))
 
 #define vector_delete_s(v, index) (((index) < ((v)->length)) ?\
   memmove((v)->items + (index), (v)->items + (index) + 1, ((v)->length - (index)-1) * sizeof(*(v)->items)),\
